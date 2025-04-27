@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="">
+  <!--Apliquei a classe para poder adicionar as configuração da mudança da página dark para light. Através dessa classe irei aplicar na raiz da página uma definição de cor no css-->
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevLinks</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Na linha acima eu estou informando onde está o arquivo css-->
+  </head>
+  <body>
+    <div id="container">
+      <!-- Em HTML, uma "div" (de "division" ou "divisão") é uma tag que cria um contêiner genérico para agrupar elementos e facilitar a aplicação de estilos CSS ou a manipulação com JavaScript !-->
+      <div id="profile">
+        <img
+          src="./assets/avatar-dark.png"
+          alt="Foto de Marcus Mazzini sorrindo, com sobretudo cinza e ao fundo uma praia de pedras e o mar"
+          src="./assets/avatar-light.png"
+          alt="Foto de Marcus Mazzini de perfil, com mar e um barco ao fundo"
+        />
+        <!-- Em HTML, o id é um atributo global que atribui um identificador único a um elemento, permitindo que ele seja facilmente identificado e manipulado dentro do documento. !-->
+
+        <p>@MarcusMazzini</p>
+      </div>
+
+      <div id="switch" onclick="toggleMode()">
+        <!--Toda vez que ele for clicado, será executado a função toggleMode pelo JS-->
+        <button></button>
+        <span></span>
+      </div>
+
+      <ul>
+        <li>
+          <a href="#">Inscrever-se no NLW</a>
+        </li>
+
+        <li>
+          <a href="#">Baixar meu e-book</a>
+        </li>
+
+        <li>
+          <a href="https://github.com/MarcusMazzini" target="_blank"
+            >Ver meu portfólio</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="https://app.rocketseat.com.br/journey/explorer"
+            target="_blank"
+            >Conheça o explorer</a
+          >
+        </li>
+      </ul>
+      <div id="social-link">
+        <a href="https://github.com/MarcusMazzini" target="_blank">
+          <ion-icon name="logo-github"></ion-icon
+        ></a>
+        <a href="https://www.instagram.com/">
+          <ion-icon name="logo-instagram"></ion-icon
+        ></a>
+        <a href="https://www.youtube.com/"
+          ><ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <a href="https://www.linkedin.com/in/marcus-mazzini-86398b190/"
+          ><ion-icon name="logo-linkedin"></ion-icon
+        ></a>
+      </div>
+      <footer>
+        <!--usado para fazer rodapé-->
+
+        Feito com 💚 por
+        <a
+          href="https://www.linkedin.com/in/marcus-mazzini-86398b190/"
+          target="_blank"
+          >DevMazzini
+        </a>
+      </footer>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

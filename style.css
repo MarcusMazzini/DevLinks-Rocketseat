@@ -1,0 +1,180 @@
+* {
+  /*O seletor universal em CSS, representado pelo asterisco (*), aplica estilos a todos os elementos de um documento HTML. Isso significa que qualquer propriedade CSS definida dentro de uma regra que utiliza o seletor universal será aplicada a cada elemento, independentemente do seu tipo ou posição na árvore do DOM. */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg); /*tirei do body e coloquei aqui. Aplico uma variavel no lugar dela no body*/
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  /* --stroke-color é a borda da caixa dos links*/
+  --surface-color: rgba(255, 255, 255, 0.05);
+  /* --surface-color é o background, o fundo da caixa do link*/
+  --surface-color-hover: rgba(0, 0, 0, 0.02); /*quando passa o mouse nos links*/
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  /*/*quando passa o mouse nos icones social links*/
+  --switch-bg-url: url(./assets/MoonStars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.5);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/Sun.svg);
+}
+
+body {
+  /* Eu posso agrupar todas as informações (color image repeat position/size) a seguir usando apensa a propriedade "background:"   */
+  background: var(--bg-url) no-repeat top
+    /* top, quer dizer que vai ficar alinhado na linha vertical (x), no topo */
+    center/
+    /* center quer dizer que vai ficar centralizado na linha horizontal (x)*/
+    cover
+    /* cover quer dizer que vai cobrir toda a pagina (obs: preciso colocar / antes do cover*/;
+}
+
+body * {
+  /* O * quer dizer que ele vai aplicar tudo que está aqui para todo o corpo*/
+  font-family: "Inter", sans-serif;
+  /*color: #ffffff;  Ao aplicar a alteração de cor na root, não tenho mais necessidade de deixar a cor dessa maneira. Irei aplicar uma 
+  variavel var(--text-color)*/
+  color: var(--text-color);
+}
+
+#container {
+  /*border: 1px solid red;  A borda colocamos inicialmente no projeto para visualizar com facilidade a posição dos elemento dentro do container. Após as definições retiramos ele.*/
+  width: 360px;
+  margin: 56px auto 0px; /* Olhando para o container 56px seria a margemm de cima,  auto seria as margens esquerda e direita e  0px seria a margem inferior. caso eu tivesse mais um ele seria a margem direita*/
+  padding: 0 24px;
+}
+/* margin auto vai deixar a caixa automaticamente alinhado ao meio*/
+
+/*Profile*/
+#profile {
+  text-align: center;
+  /* # profile img {
+display: block;
+width:112px;
+margin: auto;
+}no caso para aplicar margin auto na imagem do profile, eu teria que adicionar "display: block", uma vez que  em css div é um elemento bloco e "img" é um elemento inline.   */
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* switch */
+#switch {
+  position: relative;
+  width: 6.4rem;
+
+  margin: 0.4rem auto;
+}
+
+#switch button {
+  width: 3.2rem;
+  height: 3.2rem;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block; /*Por padrão o span é inline, tenho que torná-lo block*/
+  width: 6.4rem;
+  height: 2.4rem;
+
+  background: var(--surface-color);
+
+  border: 0.1rem solid var(--stroke-color);
+  border-radius: 999.9rem;
+
+  backdrop-filter: blur(0.4rem);
+  -webkit-backdrop-filter: blur(0.4rem);
+}
+
+/*Links*/
+ul {
+  list-style: none;
+  display: flex; /*Ajuste flexivel*/
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  /* border: 1px solid red; Usado para olhar a caixa*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  /*rgba(255, 255, 255, 0.5); - agora que adicionei as variaveis para a pagina light e dark. Eu utilizo aqui essas variaveisrgba(255, 255, 255, 0.1);*/
+  border: 1px solid var(--stroke-color); /*rgba(255, 255, 255, 0.5); - agora que adicionei as variaveis para a pagina light e dark. Eu utilizo aqui essas variaveis*/
+  border-radius: 8px; /*arredondamento de borda*/
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  /*para dar suporte aos navegadores que ainda não suportam nativamente o código.Para saber sobre isso é só acessar a página caniuse.com */
+  text-decoration: none; /*tirar sublinhado da linha*/
+  font-weight: 500; /*Deixar os textos em bold. acima de 400 é sempre bold*/
+  transition: background 0.5s; /* Quando carrega ele faz uma transição dos links */
+}
+
+/*pseudo-selector  - quando passa o mouse por cima dos links ele muda de cor*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/*social-link*/
+
+#social-link {
+  display: flex; /*Embora os icones estivessem um ao lado do outro, colocou-se o display flex para habilitar o gap e poder espaçar um icone do outro*/
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+/*#social-link a - os atributos utilizados aqui são para deixar a "bolinha" que aparece ao passar o mouse sobre os icones centralizada. Sem esse código a bolinha ficaria do meio para baixo*/
+#social-link a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2;
+  border-radius: 50%;
+}
+
+/*pseudo-selector - social-links*/
+#social-link a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
