@@ -48,7 +48,8 @@ body * {
 
 #container {
   /*border: 1px solid red;  A borda colocamos inicialmente no projeto para visualizar com facilidade a posição dos elemento dentro do container. Após as definições retiramos ele.*/
-  width: 360px;
+  width: 100%;
+  max-width: 588px; /*O container terá 100% da largura(width) até 588px (tamanho desktop), pra cima disso não muda.*/
   margin: 56px auto 0px; /* Olhando para o container 56px seria a margemm de cima,  auto seria as margens esquerda e direita e  0px seria a margem inferior. caso eu tivesse mais um ele seria a margem direita*/
   padding: 0 24px;
 }
