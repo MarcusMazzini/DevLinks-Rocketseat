@@ -36,7 +36,7 @@ body {
     /* center quer dizer que vai ficar centralizado na linha horizontal (x)*/
     cover
     /* cover quer dizer que vai cobrir toda a pagina (obs: preciso colocar / antes do cover*/;
-  height: 100vh;
+  height: 100vh; /*mudamos a altura para 100 view height*/
 }
 
 body * {
@@ -97,11 +97,18 @@ margin: auto;
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.4s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  /*right: 0;
+  left: initial; (iniialmente haviamos programado esse recurso dessa forma, porém, como apliquei uma animação keyframe para ficar uma transição suave, esse código já não faz sentido.*/
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -189,5 +196,24 @@ footer {
   }
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/*animation*/
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
